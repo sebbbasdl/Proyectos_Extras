@@ -1,0 +1,26 @@
+<app-encabezado 
+[ingresosTotales]="totalI"
+[egresosTotales]="totalE"
+>
+</app-encabezado>
+
+<app-agregar-dato (nuevoIngreso) = "procesarNuevoI($event)" ></app-agregar-dato>
+
+<div class="contenedor limpiarEstilos">
+  <div class="ingreso">
+    <h2 class="ingreso_titulo">Ingresos</h2>
+    <app-ingresos
+      *ngFor="let ingresoElemento of ingresos"
+      [ingresoE]="ingresoElemento"
+      [totalI]="totalI"
+    ></app-ingresos>
+  </div>
+  <div class="egreso">
+    <h2 class="egreso_titulo">Egresos</h2>
+    <app-egresos
+      *ngFor="let egresoElemento of egresos"
+      [egresoE]="egresoElemento"
+      [totalI]="totalI"
+    ></app-egresos>
+  </div>
+</div>
