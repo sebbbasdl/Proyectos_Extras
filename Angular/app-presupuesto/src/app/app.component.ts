@@ -14,6 +14,7 @@ export class AppComponent {
   totalI :number =this.totalIngresos(this.ingresos);
   totalE :number =this.totalEgresos(this.egresos);
   nuevoI:Ingresos
+  nuevoE:Ingresos
 
   /*constructor() {
     const total = this.totalIngresos(this.ingresos);
@@ -39,11 +40,22 @@ export class AppComponent {
     return total;
   }
 
-  procesarNuevoI(nuevo:Ingresos){
-    this.nuevoI=nuevo
-    this.ingresos.push(this.nuevoI);
-    this.totalI= this.totalIngresos(this.ingresos)
+  procesarNuevoI(eventData: { nuevo2: Egresos, nuevo: Ingresos, tipo: string}) {
+    if (eventData.tipo=="ing") {
+      this.nuevoI=eventData.nuevo
+      this.ingresos.push(this.nuevoI);
+      this.totalI= this.totalIngresos(this.ingresos)
+    }else if(eventData.tipo=="egr"){
+      this.nuevoE=eventData.nuevo2
+      this.egresos.push(this.nuevoE);
+      this.totalE=this.totalIngresos(this.egresos)
+    }
+    
 
+  }
+
+  procesarNuevoE(nuevo:Egresos){
+    
   }
 
 }

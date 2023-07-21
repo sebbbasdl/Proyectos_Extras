@@ -4,12 +4,12 @@
             Presupuesto Disponible:
         </div>
         
-        <div class="presupuesto_valor">{{ingresosTotales-egresosTotales| number:'1.2-2'}}</div>
+        <div class="presupuesto_valor">{{ (ingresosTotales - egresosTotales) | currency: 'GTQ':'Q':'1.2-2' }}</div>
         
         <div class="presupuesto_ingreso limpiarEstilos">
             <div class="presupuesto_ingreso--texto">Ingresos</div>
             <div class="right">
-                <div class="presupuesto_ingreso--valor">+ {{ingresosTotales}}</div>
+                <div class="presupuesto_ingreso--valor">+ {{ingresosTotales| currency: 'GTQ':'Q':'1.2-2'}}</div>
                 <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
             </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="presupuesto_egreso limpiarEstilos">
             <div class="presupuesto_egreso--text">Egresos</div>
             <div class="right limpiarEstilos">
-                <div class="presupuesto_egreso--valor">- {{egresosTotales}}</div>
+                <div class="presupuesto_egreso--valor">- {{egresosTotales| currency: 'GTQ':'Q':'1.2-2'}}</div>
                 <div class="presupuesto_egreso--porcentaje">%{{(egresosTotales/ingresosTotales)*100 | number:'1.0-0'}}</div>
             </div>
         </div>

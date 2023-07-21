@@ -1,7 +1,7 @@
 <div class="elemento limpiarEstilos">
   <div class="elemento_descripcion">{{ingresoE.descripcion}}</div>
   <div class="right limpiarEstilos">
-    <div class="elemento_valor">+ {{ingresoE.valor}}</div>
+    <div class="elemento_valor">+ {{ingresoE.valor | currency: 'GTQ':'Q':'1.2-2'}}</div>
     <div class="elemento_eliminar">
       <button class="elemento_eliminar--btn">
         <i class="ion-ios-close-outline"></i>

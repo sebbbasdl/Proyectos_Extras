@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Ingresos } from '../ingresos.model';
+import { Egresos } from '../egresos.model';
 
 @Component({
   selector: 'app-agregar-dato',
@@ -7,16 +8,23 @@ import { Ingresos } from '../ingresos.model';
   styleUrls: ['./agregar-dato.component.css']
 })
 export class AgregarDatoComponent {
-  signo:string
+  tipo:string="ing"
   desc:string
   value:number
-  @Output() nuevoIngreso = new EventEmitter<Ingresos>();
+  @Output() nuevoIngreso = new EventEmitter<{ nuevo2: Egresos ,nuevo: Ingresos, tipo: string }>();
+
 
   // Resto del código del componente hijo
 
   enviarNuevoIngreso() {
-    const ingresos: Ingresos = new Ingresos(this.value, this.desc); 
+    console.log(this.tipo);
+    const nuevo: Ingresos = new Ingresos(this.value, this.desc);
+    const nuevo2: Egresos = new Egresos(this.value, this.desc);
+    this.nuevoIngreso.emit({ nuevo2, nuevo, tipo: this.tipo });
+  }
+  
 
-    this.nuevoIngreso.emit(ingresos);
+  tipoOperacion(evento: Event) {
+    this.tipo = (evento.target as HTMLSelectElement).value;
   }
 }
