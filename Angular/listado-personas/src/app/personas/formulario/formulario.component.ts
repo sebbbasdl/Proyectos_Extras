@@ -1,7 +1,8 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { Persona } from '../persona.model';
-import { LoggingService } from '../LoggingService.service';
-import { PersonasService } from '../personas.service';
+import { Persona } from '../../persona.model';
+import { LoggingService } from '../../LoggingService.service';
+import { PersonasService } from '../../personas.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-formulario',
@@ -15,17 +16,18 @@ export class FormularioComponent {
   //@ViewChild('nombreInput') nombreInput:ElementRef
   //@ViewChild('apellidoInput') apellidoInput:ElementRef
 
-  constructor(private loggingService:LoggingService, private personasService:PersonasService){
+  constructor(private loggingService:LoggingService, private personasService:PersonasService, private router: Router){
       this.personasService.saludar.subscribe(
       (indice:number) => alert("El indice es: "+indice)
     )
   }
 
   ngOnInit(){}
-  agregarPersona(){
+  guardarPersona(){
     let persona1= new Persona(this.nombreInput,this.apellidoInput)
     //this.personas.push(persona1)
     //this.personaCreada.emit(persona1);
     this.personasService.personaAgregada(persona1)
+    this.router.navigate(['personas'])
   }
 }
