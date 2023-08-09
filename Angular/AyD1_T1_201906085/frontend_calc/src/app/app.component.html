@@ -1,0 +1,6 @@
+<app-backend-data></app-backend-data>
+<div class="container">
+    <h1>{{titulo}}</h1>
+    <app-formulario  (enviarOperandos) = "recibirOperandos($event)"></app-formulario>
+    <app-resultado [resultado]="suma"></app-resultado>
+</div>
