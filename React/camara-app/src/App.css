@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.camera-off-message {
+  font-size: 20px;
+  margin: 20px;
+  color: red;
+}
+
+.button-container {
+  margin: 20px;
+}
+
+.action-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.captura-image {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #007bff;
+}
+
+.container {
+  background-color: #000000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.camera-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.camera-off-message {
+  font-size: 20px;
+  margin: 20px;
+  color: red;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
