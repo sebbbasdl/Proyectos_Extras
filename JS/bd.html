@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>p5.js Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+  <script>
+    function setup() {
+      createCanvas(400, 400);
+      // Realiza una solicitud GET al servidor
+      loadJSON('http://localhost:3000/api/data', gotData);
+    }
+
+    function gotData(data) {
+      // Procesa los datos recibidos desde el servidor
+      console.log(data);
+
+      // Dibuja los datos en el lienzo
+      background(220);
+      textSize(18);
+      fill(0);
+      text('Datos desde el servidor:', 20, 30);
+
+      for (let i = 0; i < data.length; i++) {
+        text(data[i].name, 20, 60 + i * 30);
+      }
+    }
+  </script>
+</body>
+</html>
