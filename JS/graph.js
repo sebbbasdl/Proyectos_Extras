@@ -7,7 +7,8 @@ let button1, button2; // Declarar las variables de los botones para que sean glo
 
 let xOffset = 1500; // Controla la posición X de la gráfica
 let yOffset = 1050; // Controla la posición Y de la gráfica
-let escala = 0.3;   // Controla la escala de la gráfica
+let escala = 0.4;   // Controla la escala de la gráfica
+
 
 
 
@@ -106,9 +107,25 @@ function draw() {
     ["1:00 PM"],
     ["1:00 PM"],
     ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["11:30 AM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["11:30 AM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
+    ["1:00 PM"],
     
   ];
-
   
   
   generarGrafica(980,  900, curvas);
@@ -184,26 +201,34 @@ function generarGrafica(x, y, curvas) {
   let xOffset = x; // Posición en X
   let yOffset = y; // Posición en Y
   let escala = 0.4; // Escala (ajusta según tus necesidades)
+  
   let puntosRojos = [];
   let cantidadCurvas = curvas.length
   
   
-  
-  
+  var xp1= 1/cantidadCurvas*5.25
+  var yp1= 350
+  var xp2= 119/cantidadCurvas*5.25
+  var yp2= -200
+  var xp3= 238/cantidadCurvas*5.25
+  var yp3= 350
+  var y_tiempo=380
+  text("1",-30+xOffset*escala ,30+yOffset*escala )
   for (let i = 0; i < cantidadCurvas; i++) {
     // Define los puntos relativos a xOffset, yOffset y escala
-    let p1 = { x: (0 + xOffset) * escala, y: (350 + yOffset) * escala };
-    let p2 = { x: (119 + xOffset) * escala, y: (-200 + yOffset) * escala };
-    let p3 = { x: (238 + xOffset) * escala, y: (350 + yOffset) * escala };
+    let p1 = { x: (xp1 + xOffset) * escala, y: (yp1 + yOffset) * escala };
+    let p2 = { x: (xp2 + xOffset) * escala, y: (yp2 + yOffset) * escala };
+    let p3 = { x: (xp3 + xOffset) * escala, y: (yp3 + yOffset) * escala };
     stroke(0, 0, 255); // Establece el color de trazo en azul (RGB)
-    line(369, 390, 905, 390); // Dibuja una línea horizontal desde (50, 200) hasta (100, 200)
+    line((-85+xp2 + xOffset) * escala, 30+yOffset*escala, 905, 30+yOffset*escala);
     noStroke()
     stroke(0);
     fill("black");
-    textSize(12); // Tamaño del texto
+    textSize(12*(1/cantidadCurvas*4.75)); // Tamaño del texto
     textStyle(BOLD); // Negrita
-    text(curvas[i][0], p2.x, (380 + yOffset) * escala)
-    text("1",350 ,390 )
+    text(curvas[i][0], p2.x, (y_tiempo + yOffset) * escala)
+    textSize(12)
+    
     textStyle(NORMAL)
     
     
@@ -224,7 +249,7 @@ function generarGrafica(x, y, curvas) {
     puntosRojos.push(p3);
 
     // Ajusta xOffset para la siguiente curva
-    xOffset += 590 * escala;
+    xOffset += (590/cantidadCurvas*5.25) * escala;
   }
 
   // Dibuja el punto azul al principio
@@ -251,6 +276,8 @@ function generarGrafica(x, y, curvas) {
   line(xEjeY, yEjeY1, xEjeY, yEjeY2);
    
 }
+
+
 
 function createCustomDropdown(x, y, opciones) {
   let dropdown = createSelect();
